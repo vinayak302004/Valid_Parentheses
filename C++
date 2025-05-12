@@ -1,0 +1,20 @@
+# C++
+
+class Solution {
+public:
+    bool isValid(std::string s) {
+        while (s.find("()") != std::string::npos || 
+               s.find("[]") != std::string::npos || 
+               s.find("{}") != std::string::npos) 
+        {
+            size_t pos;
+            while ((pos = s.find("()")) != std::string::npos)
+                s.erase(pos, 2);
+            while ((pos = s.find("[]")) != std::string::npos)
+                s.erase(pos, 2);
+            while ((pos = s.find("{}")) != std::string::npos)
+                s.erase(pos, 2);
+        }
+        return s.empty();
+    }
+};
